@@ -6,6 +6,15 @@ class App extends Component {
     message: "Hello, World!"
   }
 
+  componentDidMount = () => {
+    fetch("http://localhost:3002/api/test")
+      .then(response => response.json())
+      .then(response => {
+        console.log(response)
+        debugger
+      })
+  }
+
   showMessage = () => {
     alert(this.state.message)
   }

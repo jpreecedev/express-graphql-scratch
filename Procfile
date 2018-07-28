@@ -1,2 +1,2 @@
-web: webpack-dev-server --mode development
-api: nodemon --inspect ./bin/www.js
+web: webpack-dev-server --mode development --port 3001
+api: nodemon --inspect ./server/index.js
