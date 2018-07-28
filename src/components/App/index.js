@@ -7,7 +7,7 @@ class App extends Component {
   }
 
   componentDidMount = () => {
-    fetch("http://localhost:3002/api/test")
+    fetch("http://localhost:3002/graphql")
       .then(response => response.json())
       .then(response => {
         console.log(response)

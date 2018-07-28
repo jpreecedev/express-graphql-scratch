@@ -1,10 +1,15 @@
-const express = require("express")
-const bodyParser = require("body-parser")
+import express from "express"
+import { json, urlencoded } from "body-parser"
+import { ApolloServer } from "apollo-server-express"
+import cors from "cors"
+import schema from "./schema"
 
 const app = express()
+const server = new ApolloServer(schema)
 
-app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({ extended: false }))
+app.use(cors())
+app.use(json())
+app.use(urlencoded({ extended: false }))
 
 app.use(function(req, res, next) {
   res.setHeader("Access-Control-Allow-Origin", "*")
@@ -17,9 +22,11 @@ app.use(function(req, res, next) {
   next()
 })
 
+server.applyMiddleware({ app })
+
 require("./routes")(app)
 
 app.set("port", process.env.PORT || 3002)
 app.listen(app.get("port"))
 
-module.exports = app
+export default app
