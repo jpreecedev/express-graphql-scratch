@@ -7,7 +7,7 @@
     "start": "nf start",
     "lint": "eslint ./src",
     "test": "jest",
-    "test:watch": "jest --watch",
+    "test:watch": "jest --watchAll",
     "test:coverage": "jest --coverage",
     "test:debug": "node --inspect-brk ./node_modules/jest/bin/jest.js --runInBand",
     "prettier": "prettier \"**/*.{js,scss}\" --write"
